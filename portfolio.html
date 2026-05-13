@@ -1,0 +1,46 @@
+<!-- Voeg dit toe in een nieuw bestand genaamd portfolio.html -->
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio | D/Sign</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #334155; color: white; font-family: 'Inter', sans-serif; }
+        .comparison-slider { position: relative; width: 100%; height: 400px; overflow: hidden; border-radius: 12px; }
+        .comparison-slider img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        .over-img { width: 50%; border-right: 2px solid #00f2ff; }
+        input[type="range"] { position: absolute; top: 50%; left: 0; width: 100%; appearance: none; background: transparent; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto">
+        <a href="index.html"><img src="logo.png" alt="Logo" class="h-12"></a>
+        <div class="space-x-6 uppercase text-sm tracking-widest">
+            <a href="index.html" class="hover:text-[#00f2ff]">Home</a>
+            <a href="over.html" class="hover:text-[#00f2ff]">Over D/Sign</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 py-20">
+        <h1 class="text-4xl font-bold mb-12 uppercase tracking-tighter">Projecten: <span class="text-[#00f2ff]">Ontwerp naar Realiteit</span></h1>
+        
+        <!-- Project 1 Item -->
+        <div class="grid md:grid-cols-2 gap-12 items-center bg-slate-900/50 p-8 rounded-3xl border border-zinc-700">
+            <div>
+                <h2 class="text-2xl font-bold mb-4">Industriële Behuizing</h2>
+                <p class="text-zinc-400 mb-4 text-sm">Geproduceerd in ESD-veilig materiaal voor elektronica-toepassingen. Links ziet u het CAD-model, rechts het geprinte onderdeel.</p>
+                <span class="text-[#00f2ff] mono text-xs uppercase">Materiaal: ABS-ESD</span>
+            </div>
+            
+            <!-- De Slider (Simpel voorbeeld) -->
+            <div class="relative group cursor-pointer overflow-hidden rounded-xl border border-zinc-600">
+                <img src="assets/project1-resultaat.jpg" class="w-full" alt="Resultaat">
+                <div class="absolute inset-0 bg-[#0d1b2a]/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                    <p class="bg-[#00f2ff] text-[#0d1b2a] px-4 py-2 font-bold rounded">Bekijk Ontwerp</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
