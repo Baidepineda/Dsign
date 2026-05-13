@@ -8,231 +8,79 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=JetBrains+Mono&display=swap');
         :root {
-            --ds-navy: #071b3d; /* De donkere kleur uit je logo */
-            --ds-blue: #00d2ff; /* De felle kleur uit je logo */
+            --ds-navy: #0d1b2a; 
+            --ds-cyan: #00f2ff; 
         }
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; }
         .mono { font-family: 'JetBrains Mono', monospace; }
     </style>
 </head>
-<body class="bg-[#0f172a] text-zinc-100">
+<body class="text-zinc-100">
 
-    <!-- Navigation -->
     <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto">
-        <div class="flex items-center space-x-3">
-            <!-- Het logo bestand wordt hier ingeladen -->
-            <img src="1000060548.png" alt="D/Sign Logo" class="h-12 w-auto">
-            <span class="text-2xl font-bold tracking-tighter text-white">D/SIGN</span>
+        <div class="flex items-center space-x-4">
+            <!-- Verwijzing naar logo.png -->
+            <img src="logo.png" alt="D/Sign Logo" class="h-16 w-auto">
         </div>
         <div class="space-x-6 text-sm uppercase tracking-widest hidden md:block">
-            <a href="#expertise" class="hover:text-[#00d2ff] transition">Expertise</a>
-            <a href="#oplossingen" class="hover:text-[#00d2ff] transition">Oplossingen</a>
-            <a href="#contact" class="border border-[#00d2ff] text-[#00d2ff] px-4 py-2 rounded-sm hover:bg-[#00d2ff] hover:text-[#071b3d] transition">Project Starten</a>
+            <a href="#expertise" class="hover:text-[#00f2ff] transition">Expertise</a>
+            <a href="#oplossingen" class="hover:text-[#00f2ff] transition">Oplossingen</a>
+            <a href="#contact" class="border border-[#00f2ff] text-[#00f2ff] px-4 py-2 rounded-sm hover:bg-[#00f2ff] hover:text-[#0d1b2a] transition font-bold">Project Starten</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="max-w-6xl mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center">
-        <div class="md:w-2/3">
+    <header class="max-w-6xl mx-auto px-6 py-20 md:py-32">
+        <div class="max-w-3xl">
             <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
-                Engineering <br><span class="text-[#00d2ff] italic text-4xl md:text-6xl">voor extreme condities.</span>
+                Engineering <br><span class="text-[#00f2ff] italic">voor extreme condities.</span>
             </h1>
-            <p class="text-xl text-zinc-400 mb-8 max-w-xl">
+            <p class="text-xl text-zinc-400 mb-8">
                 D/Sign ontwerpt en produceert onderdelen op basis van uw specifieke applicatie-eisen. Wij selecteren de materialen die uw uitdaging overwinnen.
             </p>
-            <div class="flex space-x-4">
-                <a href="#contact" class="bg-[#00d2ff] text-[#071b3d] px-8 py-4 rounded-md font-bold hover:bg-white transition shadow-lg shadow-[#00d2ff]/20">Leg uw probleem voor</a>
-                <div class="px-8 py-4 border border-zinc-700 rounded-md font-bold text-sm flex items-center bg-[#071b3d]/50">
+            <div class="flex flex-wrap gap-4">
+                <a href="#contact" class="bg-[#00f2ff] text-[#0d1b2a] px-8 py-4 rounded-md font-bold hover:bg-white transition shadow-lg shadow-[#00f2ff]/20">Leg uw probleem voor</a>
+                <div class="px-6 py-4 border border-zinc-700 rounded-md font-bold text-sm flex items-center bg-zinc-800/50">
                     <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span> High-Performance Lab
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Expertise Section -->
-    <section id="expertise" class="bg-[#071b3d]/30 py-20 border-y border-zinc-800">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 uppercase tracking-widest">Applicatie-gestuurde Productie</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 bg-[#0f172a] rounded-xl border-l-4 border-[#00d2ff] shadow-xl">
-                    <div class="text-[#00d2ff] mb-4 text-2xl font-bold mono">01.</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Thermische Belasting</h3>
-                    <p class="text-zinc-400">Onderdelen die hun vorm en sterkte behouden in omgevingen met extreme hitte of koude.</p>
-                </div>
-                <div class="p-8 bg-[#0f172a] rounded-xl border-l-4 border-[#00d2ff] shadow-xl">
-                    <div class="text-[#00d2ff] mb-4 text-2xl font-bold mono">02.</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Chemische Resistentie</h3>
-                    <p class="text-zinc-400">Componenten ontworpen voor direct contact met brandstoffen, zuren of industriële oplosmiddelen.</p>
-                </div>
-                <div class="p-8 bg-[#0f172a] rounded-xl border-l-4 border-[#00d2ff] shadow-xl">
-                    <div class="text-[#00d2ff] mb-4 text-2xl font-bold mono">03.</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Mechanische Kracht</h3>
-                    <p class="text-zinc-400">Slijtvaste onderdelen met hoge impact-resistentie voor zware mechanische toepassingen.</p>
-                </div>
+    <section id="expertise" class="bg-zinc-900/50 py-20 border-y border-zinc-800">
+        <div class="max-w-6xl mx-auto px-6 text-center mb-16">
+            <h2 class="text-3xl font-bold uppercase tracking-[0.2em]">Applicatie-gestuurde Productie</h2>
+        </div>
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+            <div class="p-8 bg-zinc-900 rounded-xl border-t-2 border-[#00f2ff]">
+                <h3 class="text-xl font-bold mb-4 text-white">Thermische Belasting</h3>
+                <p class="text-zinc-400">Onderdelen die hun vorm en sterkte behouden in omgevingen met extreme hitte of koude.</p>
+            </div>
+            <div class="p-8 bg-zinc-900 rounded-xl border-t-2 border-[#00f2ff]">
+                <h3 class="text-xl font-bold mb-4 text-white">Chemische Resistentie</h3>
+                <p class="text-zinc-400">Componenten ontworpen voor direct contact met brandstoffen, zuren of industriële oplosmiddelen.</p>
+            </div>
+            <div class="p-8 bg-zinc-900 rounded-xl border-t-2 border-[#00f2ff]">
+                <h3 class="text-xl font-bold mb-4 text-white">Mechanische Kracht</h3>
+                <p class="text-zinc-400">Slijtvaste onderdelen met hoge impact-resistentie voor zware mechanische toepassingen.</p>
             </div>
         </div>
     </section>
 
-    <!-- Metal Section -->
-    <section id="oplossingen" class="py-24">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center gap-16">
-                <div class="md:w-1/2">
-                    <h2 class="text-4xl font-bold mb-6 italic text-white uppercase tracking-tighter">Geavanceerde Metalen</h2>
-                    <p class="text-zinc-400 mb-6 text-lg">
-                        Naast high-grade polymeren is D/Sign gespecialiseerd in de productie van functionele componenten in <span class="text-white font-bold">RVS</span> en <span class="text-white font-bold">Titanium</span>. 
-                    </p>
-                    <ul class="space-y-4 mono text-sm">
-                        <li class="flex items-center text-[#00d2ff]"><span class="mr-3 text-xl">→</span> Corrosiebestendig RVS (316L)</li>
-                        <li class="flex items-center text-[#00d2ff]"><span class="mr-3 text-xl">→</span> Ultra-lichtgewicht Titanium (Grade 5)</li>
-                        <li class="flex items-center text-[#00d2ff]"><span class="mr-3 text-xl">→</span> Direct inzetbare functionele onderdelen</li>
-                    </ul>
-                </div>
-                <div class="md:w-1/2 relative">
-                    <div class="absolute -inset-4 bg-[#00d2ff]/10 blur-2xl rounded-full"></div>
-                    <div class="relative grid grid-cols-2 gap-4">
-                        <div class="h-48 bg-[#071b3d] rounded-lg flex flex-col items-center justify-center border border-zinc-700 p-4">
-                            <span class="text-[#00d2ff] font-bold text-xl uppercase">Polymeren</span>
-                        </div>
-                        <div class="h-48 bg-white/5 rounded-lg flex flex-col items-center justify-center border border-[#00d2ff]/30 p-4">
-                            <span class="text-[#00d2ff] font-bold text-xl uppercase">Metalen</span>
-                        </div>
-                    </div>
-                </div>
+    <section id="contact" class="max-w-4xl mx-auto px-6 py-32 text-center">
+        <div class="bg-gradient-to-b from-zinc-800 to-zinc-950 p-12 rounded-3xl border border-zinc-700">
+            <!-- Logo ook hier onderaan herhaald -->
+            <img src="logo.png" alt="D/Sign Logo" class="h-24 mx-auto mb-8">
+            <h2 class="text-4xl font-bold mb-6 text-white">U stelt de eisen, wij leveren de oplossing.</h2>
+            <p class="text-zinc-400 mb-10 text-lg">Gespecialiseerd in Titanium, RVS en High-Grade Engineering Plastics.</p>
+            <div class="inline-block border-t border-zinc-700 pt-8">
+                <p class="text-[#00f2ff] font-bold tracking-[0.3em] uppercase text-xl">D/SIGN Solutions</p>
+                <p class="text-xs text-zinc-500 mt-4 mono uppercase">Gevestigd in Selfkant, Deutschland</p>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section id="contact" class="max-w-4xl mx-auto px-6 py-24 text-center">
-        <div class="bg-gradient-to-br from-[#071b3d] to-[#0f172a] p-12 rounded-3xl border border-[#00d2ff]/20 shadow-2xl">
-            <img src="1000060548.png" alt="Logo" class="h-20 mx-auto mb-6">
-            <h2 class="text-4xl font-bold mb-4 text-white">U stelt de eisen, wij leveren de oplossing.</h2>
-            <p class="text-zinc-400 mb-8 text-lg italic">Gespecialiseerd in Engineering Plastics & Metaalprinten.</p>
-            <div class="inline-block border-t border-[#00d2ff]/30 pt-6 mt-6">
-                <p class="text-[#00d2ff] font-bold tracking-[0.2em] uppercase">D/SIGN Solutions</p>
-                <p class="text-xs text-zinc-500 mt-2">Selfkant, Deutschland</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="p-10 border-t border-zinc-800 text-center text-zinc-600 text-sm mono">
+    <footer class="p-10 text-center text-zinc-600 text-xs mono border-t border-zinc-900">
         &copy; 2026 D/Sign Solutions. All Rights Reserved.
-    </footer>
-
-</body>
-</html>
-                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span> High-Performance Lab
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Expertise Section -->
-    <section id="expertise" class="bg-zinc-800 py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12">Applicatie-gestuurde Productie</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 bg-zinc-900 rounded-xl border border-zinc-700">
-                    <div class="text-blue-500 mb-4 text-2xl font-bold italic">01.</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Thermische Belasting</h3>
-                    <p class="text-zinc-400">Onderdelen die hun vorm en sterkte behouden in omgevingen met extreme hitte of koude.</p>
-                </div>
-                <div class="p-8 bg-zinc-900 rounded-xl border border-zinc-700">
-                    <div class="text-blue-500 mb-4 text-2xl font-bold italic">02.</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Chemische Resistentie</h3>
-                    <p class="text-zinc-400">Componenten ontworpen voor direct contact met brandstoffen, zuren of industriële oplosmiddelen.</p>
-                </div>
-                <div class="p-8 bg-zinc-900 rounded-xl border border-zinc-700">
-                    <div class="text-blue-500 mb-4 text-2xl font-bold italic">03.</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Mechanische Kracht</h3>
-                    <p class="text-zinc-400">Slijtvaste onderdelen met hoge impact-resistentie voor zware mechanische toepassingen.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Metal Section -->
-    <section id="oplossingen" class="py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2">
-                    <h2 class="text-4xl font-bold mb-6 italic">Geavanceerde Metalen</h2>
-                    <p class="text-zinc-400 mb-6">
-                        Naast high-grade polymeren is D/Sign gespecialiseerd in de productie van functionele componenten in **RVS** en **Titanium**. 
-                    </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-center text-blue-400"><span class="mr-2">✔</span> Corrosiebestendig RVS</li>
-                        <li class="flex items-center text-blue-400"><span class="mr-2">✔</span> Ultra-lichtgewicht Titanium</li>
-                        <li class="flex items-center text-blue-400"><span class="mr-2">✔</span> Direct inzetbare functionele onderdelen</li>
-                    </ul>
-                </div>
-                <div class="md:w-1/2 grid grid-cols-2 gap-4">
-                    <div class="h-40 bg-zinc-800 rounded-lg flex items-center justify-center border border-zinc-700">Polymeren</div>
-                    <div class="h-40 bg-blue-900/20 rounded-lg flex items-center justify-center border border-blue-500/30">Metalen</div>
-                    <div class="h-40 bg-blue-900/20 rounded-lg flex items-center justify-center border border-blue-500/30">Composieten</div>
-                    <div class="h-40 bg-zinc-800 rounded-lg flex items-center justify-center border border-zinc-700">Custom Gear</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section id="contact" class="max-w-6xl mx-auto px-6 py-24 text-center">
-        <h2 class="text-4xl font-bold mb-4">U stelt de eisen, wij leveren de oplossing.</h2>
-        <p class="text-zinc-400 mb-8 text-lg italic">Gespecialiseerd in Engineering Plastics & Metalen.</p>
-        <div class="bg-blue-600 p-8 rounded-2xl max-w-md mx-auto shadow-2xl shadow-blue-500/20">
-            <p class="text-white font-bold mb-2 text-xl">D/SIGN Solutions</p>
-            <p class="text-blue-200 text-sm italic border-t border-blue-500 pt-4 mt-4">Neem contact op voor een technische consultatie.</p>
-        </div>
-    </section>
-
-    <footer class="p-10 border-t border-zinc-800 text-center text-zinc-600 text-sm">
-        &copy; 2026 D/Sign Solutions. Gevestigd in Selfkant.
-    </footer>
-
-</body>
-</html>
-            </div>
-        </div>
-    </header>
-
-    <!-- Focus Section -->
-    <section id="focus" class="bg-zinc-800 py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12">Onze Expertise</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 bg-zinc-900 rounded-xl border border-zinc-700">
-                    <div class="text-blue-500 mb-4 text-2xl font-bold">01.</div>
-                    <h3 class="text-xl font-bold mb-2">Custom Engineering</h3>
-                    <p class="text-zinc-400">Onderdelen die niet meer leverbaar zijn of nergens te koop zijn. Wij meten in en tekenen op maat.</p>
-                </div>
-                <div class="p-8 bg-zinc-900 rounded-xl border border-zinc-700">
-                    <div class="text-blue-500 mb-4 text-2xl font-bold">02.</div>
-                    <h3 class="text-xl font-bold mb-2">Jigs & Fixtures</h3>
-                    <p class="text-zinc-400">Mallen en hulpmiddelen die uw productieproces versnellen en menselijke fouten verminderen.</p>
-                </div>
-                <div class="p-8 bg-zinc-900 rounded-xl border border-zinc-700">
-                    <div class="text-blue-500 mb-4 text-2xl font-bold">03.</div>
-                    <h3 class="text-xl font-bold mb-2">Technisch Materiaal</h3>
-                    <p class="text-zinc-400">Geen speelgoed. Wij printen in ASA, PETG en Carbon-nylon voor industriële toepassingen.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section id="contact" class="max-w-6xl mx-auto px-6 py-24 text-center">
-        <h2 class="text-4xl font-bold mb-4">Heeft u een technisch probleem?</h2>
-        <p class="text-zinc-400 mb-8 text-lg">Laat de oplossing niet op zich wachten. Laten we bespreken hoe we het tekenen en printen.</p>
-        <div class="bg-zinc-800 p-8 rounded-2xl max-w-md mx-auto border border-zinc-700">
-            <p class="text-blue-400 font-mono mb-2">Contacteer Daniel Baide Pineda</p>
-            <p class="text-sm text-zinc-500 italic">Portfolio en tarieven op aanvraag.</p>
-        </div>
-    </section>
-
-    <footer class="p-10 border-t border-zinc-800 text-center text-zinc-600 text-sm">
-        &copy; 2026 D/Sign Solutions. Gevestigd in Selfkant.
     </footer>
 
 </body>
