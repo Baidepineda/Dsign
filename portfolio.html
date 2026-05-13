@@ -54,12 +54,35 @@
         </div>
     </div>
 
-            <!-- De Slider (Simpel voorbeeld) -->
-            <div class="relative group cursor-pointer overflow-hidden rounded-xl border border-zinc-600">
-                <img src="assets/project1-resultaat.jpg" class="w-full" alt="Resultaat">
-                <div class="absolute inset-0 bg-[#0d1b2a]/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                    <p class="bg-[#00f2ff] text-[#0d1b2a] px-4 py-2 font-bold rounded">Bekijk Ontwerp</p>
-                </div>
+            <!-- De interactieve slider container -->
+<div class="relative w-full aspect-video overflow-hidden rounded-xl border border-zinc-600 shadow-2xl" id="slider1">
+    
+    <!-- FOTO 2: Het fysieke resultaat (onderste laag) -->
+    <img src="assets/project1-resultaat.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Resultaat">
+    
+    <!-- FOTO 1: Het CAD ontwerp (bovenste laag die we 'clippen') -->
+    <div class="absolute inset-0 w-full h-full overflow-hidden" id="clip-1" style="clip-path: inset(0 50% 0 0);">
+        <img src="assets/project1-ontwerp.jpg" class="w-full h-full object-cover" alt="Ontwerp">
+    </div>
+
+    <!-- De onzichtbare schuifbalk die de actie aanstuurt -->
+    <input type="range" min="0" max="100" value="50" 
+           class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-10"
+           oninput="updateSlider(this.value, 1)">
+    
+    <!-- De blauwe verticale lijn (visuele indicator) -->
+    <div class="absolute inset-y-0 left-1/2 w-0.5 bg-[#00f2ff] pointer-events-none shadow-[0_0_10px_#00f2ff]" 
+         id="line-1"></div>
+</div>
+
+<!-- Voeg dit kleine scriptje eenmalig toe onderaan je <body> zodat de schuifbalk werkt -->
+<script>
+    function updateSlider(val, id) {
+        document.getElementById(`clip-${id}`).style.clipPath = `inset(0 ${100 - val}% 0 0)`;
+        document.getElementById(`line-${id}`).style.left = `${val}%`;
+    }
+</script>
+
             </div>
         </div>
     </main>
