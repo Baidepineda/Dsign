@@ -8,23 +8,6 @@
     <style>
         body { background-color: #334155; color: white; font-family: 'Inter', sans-serif; }
         .mono { font-family: 'JetBrains Mono', monospace; }
-        
-        /* Custom styling voor de dubbele schuifbalken */
-        .slider-wrapper input[type="range"] {
-            position: absolute;
-            height: 100%;
-            appearance: none;
-            background: transparent;
-            cursor: pointer;
-            z-index: 30;
-            margin: 0;
-        }
-        .slider-wrapper input[type="range"]::-webkit-slider-thumb {
-            appearance: none;
-            width: 40px;
-            height: 100%;
-            background: transparent;
-        }
     </style>
 </head>
 <body class="text-zinc-100">
@@ -50,7 +33,7 @@
             </div>
         </div>
         
-        <div id="project-lager" class="project-card grid md:grid-cols-2 gap-12 items-start bg-slate-900/50 p-8 rounded-3xl border border-zinc-700 transition duration-300">
+        <div id="project-lager" class="project-card grid md:grid-cols-2 gap-12 items-center bg-slate-900/50 p-8 rounded-3xl border border-zinc-700 transition duration-300">
             <div>
                 <h2 class="text-2xl font-bold mb-4 text-[#00f2ff] italic">Hybride Afdichtingsoplossing voor Lageronderhoud</h2>
                 <div class="text-zinc-300 space-y-4 text-sm leading-relaxed">
@@ -69,30 +52,30 @@
                 </div>
                 <div class="mt-6 flex flex-wrap gap-2">
                     <span class="bg-[#00f2ff]/10 text-[#00f2ff] px-3 py-1 rounded text-xs font-bold uppercase tracking-widest border border-[#00f2ff]/20">Materiaal: TPC</span>
-                    <span class="bg-zinc-800 text-zinc-400 px-3 py-1 rounded text-xs font-bold uppercase tracking-widest border border-zinc-700">3-Weg Slider Active</span>
+                    <span class="bg-zinc-800 text-zinc-400 px-3 py-1 rounded text-xs font-bold uppercase tracking-widest border border-zinc-700">3-Step View Active</span>
                 </div>
             </div>
             
-            <div class="slider-wrapper relative w-full aspect-video overflow-hidden rounded-xl border border-zinc-600 shadow-2xl" id="wrapper-lager">
-                <img src="assets/project1-resultaat.jpg" class="absolute inset-0 w-full h-full object-cover z-10" alt="Fysiek Resultaat">
-                
-                <div class="absolute inset-0 w-full h-full overflow-hidden z-12 transition-none" id="clip-lager-drawing" style="clip-path: inset(0 33.33% 0 0);">
-                    <img src="assets/project1-drawing.jpg" class="w-full h-full object-cover" alt="Technische Tekening">
+            <div class="w-full flex flex-col gap-4">
+                <div class="relative w-full aspect-square overflow-hidden rounded-xl border border-zinc-600 shadow-2xl bg-slate-950">
+                    <img id="media-lager" src="assets/project1-resultaat.jpg" class="w-full h-full object-cover transition duration-200" alt="Project weergave">
                 </div>
-
-                <div class="absolute inset-0 w-full h-full overflow-hidden z-14 transition-none" id="clip-lager-cad" style="clip-path: inset(0 66.66% 0 0);">
-                    <img src="assets/project1-ontwerp.jpg" class="w-full h-full object-cover" alt="CAD Ontwerp">
-                </div>
-
-                <input type="range" min="0" max="100" value="33.33" id="input-lager-1" class="top-0 left-0 w-full" oninput="handleTripleSlider('lager')">
-                <input type="range" min="0" max="100" value="66.66" id="input-lager-2" class="top-0 left-0 w-full" oninput="handleTripleSlider('lager')">
                 
-                <div class="absolute inset-y-0 w-0.5 bg-[#00f2ff] pointer-events-none shadow-[0_0_10px_#00f2ff] z-20" id="line-lager-1" style="left: 33.33%;"></div>
-                <div class="absolute inset-y-0 w-0.5 bg-[#00f2ff] pointer-events-none shadow-[0_0_10px_#00f2ff] z-20" id="line-lager-2" style="left: 66.66%;"></div>
+                <div class="grid grid-cols-3 gap-2 mono text-[11px] uppercase font-bold tracking-wider">
+                    <button onclick="changeMedia('lager', 'ontwerp')" id="btn-lager-ontwerp" class="py-2.5 px-2 text-center rounded border border-zinc-700 bg-slate-800 text-zinc-400 hover:text-white hover:border-zinc-500 transition">
+                        01. CAD Model
+                    </button>
+                    <button onclick="changeMedia('lager', 'drawing')" id="btn-lager-drawing" class="py-2.5 px-2 text-center rounded border border-zinc-700 bg-slate-800 text-zinc-400 hover:text-white hover:border-zinc-500 transition">
+                        02. 2D Drawing
+                    </button>
+                    <button onclick="changeMedia('lager', 'resultaat')" id="btn-lager-resultaat" class="py-2.5 px-2 text-center rounded border border-[#00f2ff] bg-[#00f2ff]/10 text-[#00f2ff] transition">
+                        03. Fysieke Print
+                    </button>
+                </div>
             </div>
         </div>
 
-        <div id="project-karcher" class="project-card grid md:grid-cols-2 gap-12 items-start bg-slate-900/50 p-8 rounded-3xl border border-zinc-700 transition duration-300 hidden">
+        <div id="project-karcher" class="project-card grid md:grid-cols-2 gap-12 items-center bg-slate-900/50 p-8 rounded-3xl border border-zinc-700 transition duration-300 hidden">
             <div>
                 <h2 class="text-2xl font-bold mb-4 text-[#00f2ff] italic">Kärcher B40 — Slijtvaste Bedieningsknop</h2>
                 <div class="text-zinc-300 space-y-4 text-sm leading-relaxed">
@@ -106,37 +89,36 @@
                     </section>
                     <section>
                         <h3 class="text-white font-semibold uppercase text-xs tracking-wider mb-1">Materiaal & Resultaat</h3>
-                        <p>Gefabriceerd in hoogwaardig **PA12 (Nylon)**. Dit materiaal is volledig resistent tegen weekmakers, oliën en agressieve industriële chemicaliën, waardoor de machine weer betrouwbaar ingezet kan worden.</p>
+                        <p>Gefabriceerd in hoogwaardig <strong>PA12 (Nylon)</strong>. Dit materiaal is volledig resistent tegen weekmakers, oliën en agressieve industriële chemicaliën, waardoor de machine weer betrouwbaar ingezet kan worden.</p>
                     </section>
                 </div>
                 <div class="mt-6 flex flex-wrap gap-2">
                     <span class="bg-[#00f2ff]/10 text-[#00f2ff] px-3 py-1 rounded text-xs font-bold uppercase tracking-widest border border-[#00f2ff]/20">Materiaal: PA12 (Nylon)</span>
-                    <span class="bg-zinc-800 text-zinc-400 px-3 py-1 rounded text-xs font-bold uppercase tracking-widest border border-zinc-700">3-Weg Slider Active</span>
+                    <span class="bg-zinc-800 text-zinc-400 px-3 py-1 rounded text-xs font-bold uppercase tracking-widest border border-zinc-700">3-Step View Active</span>
                 </div>
             </div>
             
-            <div class="slider-wrapper relative w-full aspect-video overflow-hidden rounded-xl border border-zinc-600 shadow-2xl" id="wrapper-karcher">
-                <img src="assets/project2-resultaat.jpg" class="absolute inset-0 w-full h-full object-cover z-10" alt="Fysiek Resultaat">
-                
-                <div class="absolute inset-0 w-full h-full overflow-hidden z-12 transition-none" id="clip-karcher-drawing" style="clip-path: inset(0 33.33% 0 0);">
-                    <img src="assets/project2-drawing.jpg" class="w-full h-full object-cover" alt="Technische Tekening">
+            <div class="w-full flex flex-col gap-4">
+                <div class="relative w-full aspect-square overflow-hidden rounded-xl border border-zinc-600 shadow-2xl bg-slate-950">
+                    <img id="media-karcher" src="assets/project2-resultaat.jpg" class="w-full h-full object-cover transition duration-200" alt="Project weergave">
                 </div>
-
-                <div class="absolute inset-0 w-full h-full overflow-hidden z-14 transition-none" id="clip-karcher-cad" style="clip-path: inset(0 66.66% 0 0);">
-                    <img src="assets/project2-ontwerp.jpg" class="w-full h-full object-cover" alt="CAD Ontwerp">
-                </div>
-
-                <input type="range" min="0" max="100" value="33.33" id="input-karcher-1" class="top-0 left-0 w-full" oninput="handleTripleSlider('karcher')">
-                <input type="range" min="0" max="100" value="66.66" id="input-karcher-2" class="top-0 left-0 w-full" oninput="handleTripleSlider('karcher')">
                 
-                <div class="absolute inset-y-0 w-0.5 bg-[#00f2ff] pointer-events-none shadow-[0_0_10px_#00f2ff] z-20" id="line-karcher-1" style="left: 33.33%;"></div>
-                <div class="absolute inset-y-0 w-0.5 bg-[#00f2ff] pointer-events-none shadow-[0_0_10px_#00f2ff] z-20" id="line-karcher-2" style="left: 66.66%;"></div>
+                <div class="grid grid-cols-3 gap-2 mono text-[11px] uppercase font-bold tracking-wider">
+                    <button onclick="changeMedia('karcher', 'ontwerp')" id="btn-karcher-ontwerp" class="py-2.5 px-2 text-center rounded border border-zinc-700 bg-slate-800 text-zinc-400 hover:text-white hover:border-zinc-500 transition">
+                        01. CAD Model
+                    </button>
+                    <button onclick="changeMedia('karcher', 'drawing')" id="btn-karcher-drawing" class="py-2.5 px-2 text-center rounded border border-zinc-700 bg-slate-800 text-zinc-400 hover:text-white hover:border-zinc-500 transition">
+                        02. 2D Drawing
+                    </button>
+                    <button onclick="changeMedia('karcher', 'resultaat')" id="btn-karcher-resultaat" class="py-2.5 px-2 text-center rounded border border-[#00f2ff] bg-[#00f2ff]/10 text-[#00f2ff] transition">
+                        03. Fysieke Print
+                    </button>
+                </div>
             </div>
         </div>
     </main>
 
     <script>
-        // Dropdown Logica om projecten te wisselen
         function switchProject(projectId) {
             document.querySelectorAll('.project-card').forEach(card => {
                 card.classList.add('hidden');
@@ -144,32 +126,18 @@
             document.getElementById(projectId).classList.remove('hidden');
         }
 
-        // Geavanceerde 3-Weg Slider Logica
-        function handleTripleSlider(prefix) {
-            const r1 = document.getElementById(`input-${prefix}-1`);
-            const r2 = document.getElementById(`input-${prefix}-2`);
-            
-            let v1 = parseFloat(r1.value);
-            let v2 = parseFloat(r2.value);
+        function changeMedia(projectPrefix, type) {
+            const imgElement = document.getElementById(`media-${projectPrefix}`);
+            imgElement.src = `assets/${projectPrefix === 'lager' ? 'project1' : 'project2'}-${type}.jpg`;
 
-            // Zorg dat schuifbalk 1 nooit voorbij schuifbalk 2 kan gaan
-            if (v1 >= v2) {
-                v1 = v2 - 0.01;
-                r1.value = v1;
-            }
+            const types = ['ontwerp', 'drawing', 'resultaat'];
+            types.forEach(t => {
+                const btn = document.getElementById(`btn-${projectPrefix}-${t}`);
+                btn.className = "py-2.5 px-2 text-center rounded border border-zinc-700 bg-slate-800 text-zinc-400 hover:text-white hover:border-zinc-500 transition";
+            });
 
-            const cadLayer = document.getElementById(`clip-${prefix}-cad`);
-            const drawingLayer = document.getElementById(`clip-${prefix}-drawing`);
-            const line1 = document.getElementById(`line-${prefix}-1`);
-            const line2 = document.getElementById(`line-${prefix}-2`);
-
-            // Pas de uitsnedes aan op basis van de waardes
-            cadLayer.style.clipPath = `inset(0 ${100 - v1}% 0 0)`;
-            drawingLayer.style.clipPath = `inset(0 ${100 - v2}% 0 0)`;
-
-            // Zet de blauwe lijnen op de juiste positie
-            line1.style.left = v1 + '%';
-            line2.style.left = v2 + '%';
+            const activeBtn = document.getElementById(`btn-${projectPrefix}-${type}`);
+            activeBtn.className = "py-2.5 px-2 text-center rounded border border-[#00f2ff] bg-[#00f2ff]/10 text-[#00f2ff] transition";
         }
     </script>
 </body>
