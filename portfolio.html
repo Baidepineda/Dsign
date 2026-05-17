@@ -1,90 +1,176 @@
-<!-- Voeg dit toe in een nieuw bestand genaamd portfolio.html -->
 <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | D/Sign</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #334155; color: white; font-family: 'Inter', sans-serif; }
-        .comparison-slider { position: relative; width: 100%; height: 400px; overflow: hidden; border-radius: 12px; }
-        .comparison-slider img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
-        .over-img { width: 50%; border-right: 2px solid #00f2ff; }
-        input[type="range"] { position: absolute; top: 50%; left: 0; width: 100%; appearance: none; background: transparent; cursor: pointer; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Custom styling voor de dubbele schuifbalken */
+        .slider-wrapper input[type="range"] {
+            position: absolute;
+            height: 100%;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+            z-index: 30;
+            margin: 0;
+        }
+        .slider-wrapper input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 40px;
+            height: 100%;
+            background: transparent;
+        }
     </style>
 </head>
-<body>
+<body class="text-zinc-100">
+
     <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto">
         <a href="index.html"><img src="logo.png" alt="Logo" class="h-12"></a>
         <div class="space-x-6 uppercase text-sm tracking-widest">
-            <a href="index.html" class="hover:text-[#00f2ff]">Home</a>
-            <a href="over.html" class="hover:text-[#00f2ff]">Over D/Sign</a>
+            <a href="index.html" class="hover:text-[#00f2ff] transition">Home</a>
+            <a href="over.html" class="hover:text-[#00f2ff] transition">Over D/Sign</a>
         </div>
     </nav>
 
     <main class="max-w-6xl mx-auto px-6 py-20">
-        <h1 class="text-4xl font-bold mb-12 uppercase tracking-tighter">Projecten: <span class="text-[#00f2ff]">Ontwerp naar Realiteit</span></h1>
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-12 gap-6">
+            <h1 class="text-4xl font-bold uppercase tracking-tighter">Projecten: <span class="text-[#00f2ff]">Ontwerp tot Realiteit</span></h1>
+            
+            <div class="relative inline-block w-full md:w-72">
+                <label class="block text-[10px] uppercase tracking-widest text-zinc-400 font-bold mb-2 mono">Selecteer Opdracht</label>
+                <select id="projectFilter" onchange="switchProject(this.value)" class="w-full bg-slate-900 border border-zinc-600 rounded-lg p-3 text-white focus:outline-none focus:border-[#00f2ff] transition cursor-pointer font-medium text-sm appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2300f2ff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_auto] bg-[right_1rem_center] bg-no-repeat pr-10 shadow-xl">
+                    <option value="project-lager">Lageronderhoud - Afdichtingsoplossing</option>
+                    <option value="project-karcher">Kärcher B40 - Slijtvaste Bedieningsknop</option>
+                </select>
+            </div>
+        </div>
         
-        <!-- Project 1 Item -->
-        <div class="grid md:grid-cols-2 gap-12 items-start bg-slate-900/50 p-8 rounded-3xl border border-zinc-700">
-    <div>
-        <h2 class="text-2xl font-bold mb-4 text-[#00f2ff]">Hybride Afdichtingsoplossing voor Lageronderhoud</h2>
-        
-        <div class="text-zinc-300 space-y-4 text-sm leading-relaxed">
-            <section>
-                <h3 class="text-white font-semibold uppercase text-xs tracking-wider mb-1">De Uitdaging</h3>
-                <p>Oude rubberen stoppen lekten regelmatig en pasten niet goed op de verschillende 1" en 3/8" aansluitingen. Dit veroorzaakte olievervuiling tijdens het wisselen van lagerblokken.</p>
-            </section>
+        <div id="project-lager" class="project-card grid md:grid-cols-2 gap-12 items-start bg-slate-900/50 p-8 rounded-3xl border border-zinc-700 transition duration-300">
+            <div>
+                <h2 class="text-2xl font-bold mb-4 text-[#00f2ff] italic">Hybride Afdichtingsoplossing voor Lageronderhoud</h2>
+                <div class="text-zinc-300 space-y-4 text-sm leading-relaxed">
+                    <section>
+                        <h3 class="text-white font-semibold uppercase text-xs tracking-wider mb-1">De Uitdaging</h3>
+                        <p>Oude rubberen stoppen lekten regelmatig en pasten niet goed op de verschillende 1" en 3/8" aansluitingen. Dit veroorzaakte olievervuiling tijdens het wisselen van lagerblokken.</p>
+                    </section>
+                    <section>
+                        <h3 class="text-white font-semibold uppercase text-xs tracking-wider mb-1">De Innovatie</h3>
+                        <p>Een universele dop met een slimme getrapte geometrie die beide diameters lekvrij afdicht. Het ontwerp is voorzien van een geïntegreerd oog voor een sleutelring, waardoor de doppen per lagerset bij elkaar worden opgeborgen en georganiseerd.</p>
+                    </section>
+                    <section>
+                        <h3 class="text-white font-semibold uppercase text-xs tracking-wider mb-1">Materiaal & Resultaat</h3>
+                        <p>Geproduceerd in <strong>TPC</strong> voor optimale chemische resistentie en hittebestendigheid. Het resultaat is een sneller, schoner en veiliger onderhoudsproces.</p>
+                    </section>
+                </div>
+                <div class="mt-6 flex flex-wrap gap-2">
+                    <span class="bg-[#00f2ff]/10 text-[#00f2ff] px-3 py-1 rounded text-xs font-bold uppercase tracking-widest border border-[#00f2ff]/20">Materiaal: TPC</span>
+                    <span class="bg-zinc-800 text-zinc-400 px-3 py-1 rounded text-xs font-bold uppercase tracking-widest border border-zinc-700">3-Weg Slider Active</span>
+                </div>
+            </div>
+            
+            <div class="slider-wrapper relative w-full aspect-video overflow-hidden rounded-xl border border-zinc-600 shadow-2xl" id="wrapper-lager">
+                <img src="assets/project1-resultaat.jpg" class="absolute inset-0 w-full h-full object-cover z-10" alt="Fysiek Resultaat">
+                
+                <div class="absolute inset-0 w-full h-full overflow-hidden z-12 transition-none" id="clip-lager-drawing" style="clip-path: inset(0 33.33% 0 0);">
+                    <img src="assets/project1-drawing.jpg" class="w-full h-full object-cover" alt="Technische Tekening">
+                </div>
 
-            <section>
-                <h3 class="text-white font-semibold uppercase text-xs tracking-wider mb-1">De Innovatie</h3>
-                <p>Een universele dop met een slimme getrapte geometrie die beide diameters lekvrij afdicht. Het ontwerp is voorzien van een geïntegreerd oog voor een sleutelring, waardoor de doppen per lagerset bij elkaar kunnen worden opgeborgen en georganiseerd.</p>
-            </section>
+                <div class="absolute inset-0 w-full h-full overflow-hidden z-14 transition-none" id="clip-lager-cad" style="clip-path: inset(0 66.66% 0 0);">
+                    <img src="assets/project1-ontwerp.jpg" class="w-full h-full object-cover" alt="CAD Ontwerp">
+                </div>
 
-            <section>
-                <h3 class="text-white font-semibold uppercase text-xs tracking-wider mb-1">Materiaal & Resultaat</h3>
-                <p>Geproduceerd in <strong>TPC</strong> voor optimale chemische resistentie en hittebestendigheid. Het resultaat is een sneller, schoner en veiliger onderhoudsproces.</p>
-            </section>
+                <input type="range" min="0" max="100" value="33.33" id="input-lager-1" class="top-0 left-0 w-full" oninput="handleTripleSlider('lager')">
+                <input type="range" min="0" max="100" value="66.66" id="input-lager-2" class="top-0 left-0 w-full" oninput="handleTripleSlider('lager')">
+                
+                <div class="absolute inset-y-0 w-0.5 bg-[#00f2ff] pointer-events-none shadow-[0_0_10px_#00f2ff] z-20" id="line-lager-1" style="left: 33.33%;"></div>
+                <div class="absolute inset-y-0 w-0.5 bg-[#00f2ff] pointer-events-none shadow-[0_0_10px_#00f2ff] z-20" id="line-lager-2" style="left: 66.66%;"></div>
+            </div>
         </div>
 
-        <div class="mt-6">
-            <span class="bg-[#00f2ff]/10 text-[#00f2ff] px-3 py-1 rounded text-xs font-bold uppercase tracking-widest border border-[#00f2ff]/20">
-                Materiaal: TPC (Thermoplastisch Copolyester)
-            </span>
-        </div>
-    </div>
+        <div id="project-karcher" class="project-card grid md:grid-cols-2 gap-12 items-start bg-slate-900/50 p-8 rounded-3xl border border-zinc-700 transition duration-300 hidden">
+            <div>
+                <h2 class="text-2xl font-bold mb-4 text-[#00f2ff] italic">Kärcher B40 — Slijtvaste Bedieningsknop</h2>
+                <div class="text-zinc-300 space-y-4 text-sm leading-relaxed">
+                    <section>
+                        <h3 class="text-white font-semibold uppercase text-xs tracking-wider mb-1">De Uitdaging</h3>
+                        <p>De originele fabrieksmatige ABS-bedieningsknop van deze professionele schrobzuigmachine raakte na verloop van tijd ernstig aangetast en bros door de inwerking van plasticizers (weekmakers).</p>
+                    </section>
+                    <section>
+                        <h3 class="text-white font-semibold uppercase text-xs tracking-wider mb-1">De Innovatie</h3>
+                        <p>Er is een exact passend component ontworpen dat de ergonomie van het origineel behoudt, maar mechanisch is geoptimaliseerd voor intensief industrieel gebruik.</p>
+                    </section>
+                    <section>
+                        <h3 class="text-white font-semibold uppercase text-xs tracking-wider mb-1">Materiaal & Resultaat</h3>
+                        <p>Gefabriceerd in hoogwaardig **PA12 (Nylon)**. Dit materiaal is volledig resistent tegen weekmakers, oliën en agressieve industriële chemicaliën, waardoor de machine weer betrouwbaar ingezet kan worden.</p>
+                    </section>
+                </div>
+                <div class="mt-6 flex flex-wrap gap-2">
+                    <span class="bg-[#00f2ff]/10 text-[#00f2ff] px-3 py-1 rounded text-xs font-bold uppercase tracking-widest border border-[#00f2ff]/20">Materiaal: PA12 (Nylon)</span>
+                    <span class="bg-zinc-800 text-zinc-400 px-3 py-1 rounded text-xs font-bold uppercase tracking-widest border border-zinc-700">3-Weg Slider Active</span>
+                </div>
+            </div>
+            
+            <div class="slider-wrapper relative w-full aspect-video overflow-hidden rounded-xl border border-zinc-600 shadow-2xl" id="wrapper-karcher">
+                <img src="assets/project2-resultaat.jpg" class="absolute inset-0 w-full h-full object-cover z-10" alt="Fysiek Resultaat">
+                
+                <div class="absolute inset-0 w-full h-full overflow-hidden z-12 transition-none" id="clip-karcher-drawing" style="clip-path: inset(0 33.33% 0 0);">
+                    <img src="assets/project2-drawing.jpg" class="w-full h-full object-cover" alt="Technische Tekening">
+                </div>
 
-            <!-- De interactieve slider container -->
-<div class="relative w-full aspect-video overflow-hidden rounded-xl border border-zinc-600 shadow-2xl" id="slider1">
-    
-    <!-- FOTO 2: Het fysieke resultaat (onderste laag) -->
-    <img src="assets/project1-resultaat.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Resultaat">
-    
-    <!-- FOTO 1: Het CAD ontwerp (bovenste laag die we 'clippen') -->
-    <div class="absolute inset-0 w-full h-full overflow-hidden" id="clip-1" style="clip-path: inset(0 50% 0 0);">
-        <img src="assets/project1-ontwerp.jpg" class="w-full h-full object-cover" alt="Ontwerp">
-    </div>
+                <div class="absolute inset-0 w-full h-full overflow-hidden z-14 transition-none" id="clip-karcher-cad" style="clip-path: inset(0 66.66% 0 0);">
+                    <img src="assets/project2-ontwerp.jpg" class="w-full h-full object-cover" alt="CAD Ontwerp">
+                </div>
 
-    <!-- De onzichtbare schuifbalk die de actie aanstuurt -->
-    <input type="range" min="0" max="100" value="50" 
-           class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-10"
-           oninput="updateSlider(this.value, 1)">
-    
-    <!-- De blauwe verticale lijn (visuele indicator) -->
-    <div class="absolute inset-y-0 left-1/2 w-0.5 bg-[#00f2ff] pointer-events-none shadow-[0_0_10px_#00f2ff]" 
-         id="line-1"></div>
-</div>
-
-<!-- Voeg dit kleine scriptje eenmalig toe onderaan je <body> zodat de schuifbalk werkt -->
-<script>
-    function updateSlider(val, id) {
-        document.getElementById(`clip-${id}`).style.clipPath = `inset(0 ${100 - val}% 0 0)`;
-        document.getElementById(`line-${id}`).style.left = `${val}%`;
-    }
-</script>
-
+                <input type="range" min="0" max="100" value="33.33" id="input-karcher-1" class="top-0 left-0 w-full" oninput="handleTripleSlider('karcher')">
+                <input type="range" min="0" max="100" value="66.66" id="input-karcher-2" class="top-0 left-0 w-full" oninput="handleTripleSlider('karcher')">
+                
+                <div class="absolute inset-y-0 w-0.5 bg-[#00f2ff] pointer-events-none shadow-[0_0_10px_#00f2ff] z-20" id="line-karcher-1" style="left: 33.33%;"></div>
+                <div class="absolute inset-y-0 w-0.5 bg-[#00f2ff] pointer-events-none shadow-[0_0_10px_#00f2ff] z-20" id="line-karcher-2" style="left: 66.66%;"></div>
             </div>
         </div>
     </main>
+
+    <script>
+        // Dropdown Logica om projecten te wisselen
+        function switchProject(projectId) {
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.classList.add('hidden');
+            });
+            document.getElementById(projectId).classList.remove('hidden');
+        }
+
+        // Geavanceerde 3-Weg Slider Logica
+        function handleTripleSlider(prefix) {
+            const r1 = document.getElementById(`input-${prefix}-1`);
+            const r2 = document.getElementById(`input-${prefix}-2`);
+            
+            let v1 = parseFloat(r1.value);
+            let v2 = parseFloat(r2.value);
+
+            // Zorg dat schuifbalk 1 nooit voorbij schuifbalk 2 kan gaan
+            if (v1 >= v2) {
+                v1 = v2 - 0.01;
+                r1.value = v1;
+            }
+
+            const cadLayer = document.getElementById(`clip-${prefix}-cad`);
+            const drawingLayer = document.getElementById(`clip-${prefix}-drawing`);
+            const line1 = document.getElementById(`line-${prefix}-1`);
+            const line2 = document.getElementById(`line-${prefix}-2`);
+
+            // Pas de uitsnedes aan op basis van de waardes
+            cadLayer.style.clipPath = `inset(0 ${100 - v1}% 0 0)`;
+            drawingLayer.style.clipPath = `inset(0 ${100 - v2}% 0 0)`;
+
+            // Zet de blauwe lijnen op de juiste positie
+            line1.style.left = v1 + '%';
+            line2.style.left = v2 + '%';
+        }
+    </script>
 </body>
 </html>
